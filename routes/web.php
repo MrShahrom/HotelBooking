@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource("/room", RoomController::class);
+Route::resource("/client", ClientController::class);
