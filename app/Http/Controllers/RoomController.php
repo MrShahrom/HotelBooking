@@ -10,7 +10,7 @@ class RoomController extends Controller
     public function index(): View
     {
         $rooms = Room::all();
-        return view ('roomhotel.index')->with('rooms', $rooms);
+        return view('rooms.index')->with('rooms', $rooms);
     }
  
     public function create(): View
