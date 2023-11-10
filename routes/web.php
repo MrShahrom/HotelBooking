@@ -17,5 +17,6 @@ use App\Http\Controllers\ClientController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::resource("/room", RoomController::class);
 Route::resource("/client", ClientController::class);
