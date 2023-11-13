@@ -12,10 +12,11 @@ class Bron extends Model
     protected $fillable = ['room_id', 'time_of_bron', 'time_of_free', 'client_id'];
 
     public function room(){
-        return $this->hasMany(Room::class, 'id', 'room_id');
+        return $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
     public function client(){
-        return $this->hasMany(Client::class, 'id', 'client_id');
+        return $this->belongsTo(Client::class, 'client_id', 'id');
     }
 }
+
