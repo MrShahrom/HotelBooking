@@ -89,6 +89,50 @@ class BronController extends Controller
         return redirect()->route('brons.index')->with('success', 'Бронирование успешно добавлено.');
     }
 
+    public function show($id)
+    {
+        $bron = Bron::findOrFail($id);
+
+        return view('brons.show', compact('bron'));
+    }
+
+    public function edit($id)
+    {
+        $bron = Bron::findOrFail($id);
+        $rooms = Room::all();
+        $clients = Client::all();
+
+        return view('brons.edit', compact('bron', 'rooms', 'clients'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            
+        ]);
+
+        $bron = Bron::find($id);
+        
+        $bron->update([
+            'room_id' => $request->input('room_id'),
+            'time_of_bron' => $request->input('time_of_bron'),
+            'time_of_free' => $request->input('time_of_free'),
+            'client_id' => $request->input('client_id'),
+        ]);
+
+        return redirect()->route('brons.index')->with('success', 'Бронирование успешно обновлено.');
+    }
+
+
+
+    public function destroy($id)
+    {
+        $bron = Bron::findOrFail($id);
+        $bron->delete();
+
+        return redirect()->route('brons.index')->with('success', 'Бронирование успешно удалено.');
+    }
+
     // Метод для проверки доступности комнаты
     private function checkRoomAvailability($roomId, $timeOfBron, $timeOfFree)
     {
@@ -103,7 +147,5 @@ class BronController extends Controller
         return $conflictingBrons->isEmpty();
     }
 
-
-    // Добавьте остальные методы по необходимости
-    
 }
+

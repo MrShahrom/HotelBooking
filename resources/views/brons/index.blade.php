@@ -51,7 +51,7 @@
                         <td>{{ $bron->time_of_free }}</td>
                         <td>{{ $bron->client->name }}</td>
                         <td>
-                            <a href="{{ route('brons.show', $bron->id) }}" class="btn btn-info">Просмотр</a>
+                            <a href="{{ route('brons.edit', $bron->id) }}" class="btn btn-info">Изменить</a>
                         </td>
                     </tr>
                 @endforeach

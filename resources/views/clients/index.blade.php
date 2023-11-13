@@ -46,6 +46,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a href="{{ route('brons.index') }}" class="btn btn-primary">Назад</a>
                         </div>
  
                     </div>

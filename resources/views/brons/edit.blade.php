@@ -3,12 +3,28 @@
 @section('content')
     <div class="container">
         <h2>Редактировать бронирование</h2>
-        <form action="{{ route('bron.update', $bron->id) }}" method="POST">
+        <form action="{{ route('brons.update', $bron->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <!-- Форма аналогична представлению для создания -->
-            @include('bron.form', ['buttonText' => 'Обновить'])
+
+            <input type="hidden" name="id" id="id" value="{{ $bron->id }}" />
+
+            <label>Комната</label><br>
+            <input type="text" name="name" id="name" value="{{ $bron->room->name }}" class="form-control"><br>
+
+            
+            <label>Дата начала</label><br>
+            <input type="text" name="email" id="email" value="{{ $bron->time_of_bron }}" class="form-control"><br>
+
+            <label>Дата окончания</label><br>
+            <input type="text" name="status" id="status" value="{{ $bron->time_of_free }}" class="form-control"><br>
+
+            <label>Клиент</label><br>
+            <input type="text" name="status" id="status" value="{{ $bron->client->name }}" class="form-control"><br>
+
+            <input type="submit" value="Update" class="btn btn-success">
         </form>
-        <a href="{{ route('bron.index') }}" class="btn btn-primary">Назад</a>
+        <br>
+        <a href="{{ route('brons.index') }}" class="btn btn-primary">Назад</a>
     </div>
 @endsection
