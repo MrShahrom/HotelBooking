@@ -9,7 +9,7 @@
                         <h2>Client Crud</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/clients/create') }}" class="btn btn-success btn-sm" title="Add New Client">
+                        <a href="{{ url('/client/create') }}" class="btn btn-success btn-sm" title="Add New Client">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
                         <br/>
