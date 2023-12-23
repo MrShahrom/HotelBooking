@@ -10,17 +10,28 @@
             <input type="hidden" name="id" id="id" value="{{ $bron->id }}" />
 
             <label>Комната</label><br>
-            <input type="text" name="name" id="name" value="{{ $bron->room->name }}" class="form-control"><br>
+            <select name="room_id" class="form-control">
+                @foreach($rooms as $room)
+                    <option value="{{ $room->id }}" {{ $bron->room_id == $room->id ? 'selected' : '' }}>
+                        {{ $room->name }}
+                    </option>
+                @endforeach
+            </select><br>
 
-            
             <label>Дата начала</label><br>
-            <input type="text" name="email" id="email" value="{{ $bron->time_of_bron }}" class="form-control"><br>
+            <input type="text" name="time_of_bron" id="time_of_bron" value="{{ $bron->time_of_bron }}" class="form-control"><br>
 
             <label>Дата окончания</label><br>
-            <input type="text" name="status" id="status" value="{{ $bron->time_of_free }}" class="form-control"><br>
+            <input type="text" name="time_of_free" id="time_of_free" value="{{ $bron->time_of_free }}" class="form-control"><br>
 
             <label>Клиент</label><br>
-            <input type="text" name="status" id="status" value="{{ $bron->client->name }}" class="form-control"><br>
+            <select name="client_id" class="form-control">
+                @foreach($clients as $client)
+                    <option value="{{ $client->id }}" {{ $bron->client_id == $client->id ? 'selected' : '' }}>
+                        {{ $client->name }}
+                    </option>
+                @endforeach
+            </select><br>
 
             <input type="submit" value="Update" class="btn btn-success">
         </form>

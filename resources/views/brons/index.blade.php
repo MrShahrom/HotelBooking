@@ -52,6 +52,11 @@
                         <td>{{ $bron->client->name }}</td>
                         <td>
                             <a href="{{ route('brons.edit', $bron->id) }}" class="btn btn-info">Изменить</a>
+                            <form action="{{ route('brons.destroy', $bron->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Вы уверены?')">Удалить</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

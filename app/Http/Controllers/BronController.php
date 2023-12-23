@@ -133,7 +133,7 @@ class BronController extends Controller
         return redirect()->route('brons.index')->with('success', 'Бронирование успешно удалено.');
     }
 
-    // Метод для проверки доступности комнаты
+    
     private function checkRoomAvailability($roomId, $timeOfBron, $timeOfFree)
     {
         $conflictingBrons = DB::table('brons')
